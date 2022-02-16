@@ -1,6 +1,6 @@
 ﻿namespace BankDemo
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -44,10 +44,14 @@
             this.toTextBox = new System.Windows.Forms.TextBox();
             this.fromLabel = new System.Windows.Forms.Label();
             this.toLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.accountsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sendButton
@@ -84,7 +88,7 @@
             this.sumLabel.TabIndex = 8;
             this.sumLabel.Text = "Sum";
             // 
-            // fromDataGridView
+            // accountsDataGridView
             // 
             this.accountsDataGridView.AutoGenerateColumns = false;
             this.accountsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -94,7 +98,7 @@
             this.IsBlocked});
             this.accountsDataGridView.DataSource = this.accountBindingSource;
             this.accountsDataGridView.Location = new System.Drawing.Point(42, 93);
-            this.accountsDataGridView.Name = "fromDataGridView";
+            this.accountsDataGridView.Name = "accountsDataGridView";
             this.accountsDataGridView.RowHeadersWidth = 51;
             this.accountsDataGridView.RowTemplate.Height = 29;
             this.accountsDataGridView.Size = new System.Drawing.Size(268, 181);
@@ -170,6 +174,32 @@
             this.toLabel.TabIndex = 13;
             this.toLabel.Text = "To";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(669, 28);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marketToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // marketToolStripMenuItem
+            // 
+            this.marketToolStripMenuItem.Name = "marketToolStripMenuItem";
+            this.marketToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.marketToolStripMenuItem.Text = "Market";
+            this.marketToolStripMenuItem.Click += new System.EventHandler(this.marketToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -184,12 +214,16 @@
             this.Controls.Add(this.SumTextBox);
             this.Controls.Add(this.messagesRichTextBox);
             this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Bank";
             ((System.ComponentModel.ISupportInitialize)(this.accountsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +245,8 @@
         private TextBox toTextBox;
         private Label fromLabel;
         private Label toLabel;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem marketToolStripMenuItem;
     }
 }

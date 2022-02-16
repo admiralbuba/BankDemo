@@ -3,16 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BankDemo
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        ProcessingCenter pc;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            pc = new();
-            pc.Notify += x => AppentdText(x);
-            pc.TransactionCompleted += () => RefreshGrid();
-            Task.Run(() => pc.Start());
+            BankSingleton.Instance.ProcessingCenter.Notify += x => AppentdText(x);
+            BankSingleton.Instance.ProcessingCenter.TransactionCompleted += () => RefreshGrid();
+            Task.Run(() => BankSingleton.Instance.ProcessingCenter.Start());
             using BankSimulator.ApplicationContext db = new();
             var accounts = db.Accounts.ToList();
 
@@ -36,12 +34,17 @@ namespace BankDemo
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            pc.RegisterTransaction(new Transaction()
+            BankSingleton.Instance.ProcessingCenter.RegisterTransaction(new Transaction()
             {
                 AccountIdFrom = Int32.Parse(fromTextBox.Text),
                 AccountIdTo = Int32.Parse(toTextBox.Text),
                 Sum = Int32.Parse(SumTextBox.Text)
             });
+        }
+
+        private void marketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MarketForm().Show();
         }
     }
 }
